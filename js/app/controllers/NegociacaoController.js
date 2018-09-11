@@ -9,6 +9,7 @@ class NegociacaoController {
     this._inputData       = $('#data');
     this._inputQuantidade = $('#quantidade');
     this._inputValor      = $('#valor');
+    this._listaNegociacoes = new ListaNegociacoes();
 
   }
 
@@ -24,7 +25,11 @@ class NegociacaoController {
       this._inputQuantidade.value,
       this._inputValor.value
     );
+
+    this._listaNegociacoes.adiciona(negociacao);
+
     console.log(negociacao);
     console.log(DateHelper.dateToText(negociacao.data));
+    console.log(this._listaNegociacoes.negociacoes);
   }
 }
