@@ -23,10 +23,11 @@ class NegociacaoController {
     // contexto de document
     console.log(typeof(this._inputData.value));
     let negociacao = new Negociacao(
-      DateHelper().textToDate(this._inputData.value),
+      DateHelper.textToDate(this._inputData.value),
       this._inputQuantidade.value,
       this._inputValor.value
     );
     console.log(negociacao);
+    console.log(DateHelper.dateToText(negociacao.data));
   }
 }

@@ -1,4 +1,5 @@
 class DateHelper {
+  
   constructor(){
     throw new Error('DateHelper não pode ser instanciado');
   }
@@ -12,6 +13,6 @@ class DateHelper {
   }
 
   static dateToText(data){
-    return data.getDate() + '/' + data.getMonth() + '/' + data.getFullYear();
+    return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
   }
 }
