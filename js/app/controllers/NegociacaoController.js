@@ -16,22 +16,14 @@ class NegociacaoController {
     // Cancelo o comportamento padrão do submit para não recarregar o formulário
     event.preventDefault();
 
-    // Transformo a string em um array
-    // Spread operator - 
-    // let data = new Date(...
-    //   this._inputData.value
-    //     .split('-')
-    //     .map((item, indice) => item - indice % 2 )
-    // );
 
-    let data = new DateHelper().textToDate(this._inputData.value);
 
 
     // let $ = document.querySelector; - Não funciona porque estou executando o querySelector fora do 
     // contexto de document
     console.log(typeof(this._inputData.value));
     let negociacao = new Negociacao(
-      data,
+      DateHelper().textToDate(this._inputData.value),
       this._inputQuantidade.value,
       this._inputValor.value
     );
