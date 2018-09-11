@@ -16,9 +16,6 @@ class NegociacaoController {
     // Cancelo o comportamento padrão do submit para não recarregar o formulário
     event.preventDefault();
 
-
-
-
     // let $ = document.querySelector; - Não funciona porque estou executando o querySelector fora do 
     // contexto de document
     console.log(typeof(this._inputData.value));
