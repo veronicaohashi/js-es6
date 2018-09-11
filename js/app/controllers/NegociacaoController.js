@@ -17,19 +17,28 @@ class NegociacaoController {
     // Cancelo o comportamento padrão do submit para não recarregar o formulário
     event.preventDefault();
 
-    // let $ = document.querySelector; - Não funciona porque estou executando o querySelector fora do 
-    // contexto de document
-    console.log(typeof(this._inputData.value));
-    let negociacao = new Negociacao(
+    this._listaNegociacoes.adiciona(this._criaNegociacao());
+    this._limpaFormulario();
+
+    console.log(this._listaNegociacoes.negociacoes);
+  }
+
+  _criaNegociacao(){
+    return new Negociacao(
       DateHelper.textToDate(this._inputData.value),
       this._inputQuantidade.value,
       this._inputValor.value
     );
+  }
 
-    this._listaNegociacoes.adiciona(negociacao);
 
-    console.log(negociacao);
-    console.log(DateHelper.dateToText(negociacao.data));
-    console.log(this._listaNegociacoes.negociacoes);
+  // Método para limpar o formulário
+  // Este método só pode ser chamado pela própria classe
+  _limpaFormulario(){
+    this._inputData.value = '';
+    this._inputQuantidade.value = 1;
+    this._inputValor.value = 0.0;
+
+    this._inputData.focus();
   }
 }
