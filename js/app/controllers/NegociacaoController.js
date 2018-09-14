@@ -6,11 +6,14 @@ class NegociacaoController {
     // funciona, assim preciso executar como um função que mantém a associação com o document
     let $ = document.querySelector.bind(document);
 
-    this._inputData       = $('#data');
-    this._inputQuantidade = $('#quantidade');
-    this._inputValor      = $('#valor');
+    this._inputData        = $('#data');
+    this._inputQuantidade  = $('#quantidade');
+    this._inputValor       = $('#valor');
     this._listaNegociacoes = new ListaNegociacoes();
-
+    // Passa o elemento do DOM para o constructor
+    this._negociacoesView  = new NegociacoesView($('#negociacoesView'));
+    // Atualiza a view para exibir a tabela mesmo com dados vazios
+    this._negociacoesView.update();
   }
 
   adiciona(event){
