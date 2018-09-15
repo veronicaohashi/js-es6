@@ -19,17 +19,16 @@ class NegociacoesView {
         </thead>
 
         <tbody>
-          ${model.negociacoes.map((n)=> {
+          ${model.negociacoes.map(n => 
             // Vai retornar um array e eu adiciono o join para retornar uma string para ser adicionada no template. (concateno)
-            return `<tr>
-                      <td>${DateHelper.dateToText(n.data)}</td>
-                      <td>${n.quantidade}</td>
-                      <td>${n.valor}</td>
-                      <td>${n.volume}</td>
-                    </tr>`;
-          }).join('')}
+            `<tr>
+              <td>${DateHelper.dateToText(n.data)}</td>
+              <td>${n.quantidade}</td>
+              <td>${n.valor}</td>
+              <td>${n.volume}</td>
+            </tr>`
+          ).join('')}
         </tbody>
-
         <tfoot>
         </tfoot>
       </table>
