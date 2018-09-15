@@ -13,7 +13,7 @@ class NegociacaoController {
     // Passa o elemento do DOM para o constructor
     this._negociacoesView  = new NegociacoesView($('#negociacoesView'));
     // Atualiza a view para exibir a tabela mesmo com dados vazios
-    this._negociacoesView.update();
+    this._negociacoesView.update(this._listaNegociacoes);
   }
 
   adiciona(event){
@@ -21,6 +21,8 @@ class NegociacaoController {
     event.preventDefault();
 
     this._listaNegociacoes.adiciona(this._criaNegociacao());
+    // Atualiza a view para exibir a tabela mesmo com dados novos
+    this._negociacoesView.update(this._listaNegociacoes);
     this._limpaFormulario();
 
     console.log(this._listaNegociacoes.negociacoes);
