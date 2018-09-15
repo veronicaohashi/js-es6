@@ -30,6 +30,24 @@ class NegociacoesView {
           ).join('')}
         </tbody>
         <tfoot>
+          <tr>
+            <td colspan='3'></td>
+            <td>
+              ${
+                // Immediately-invoked function expression (IIFE) ou a função imediata. 
+                // Trata-se de um recurso usado na criação de escopo em JavaScript, sem isso o retorno do $ seria a função e não o retorno da função
+                // (function() {
+                //   let total = 0;
+                //   model.negociacoes.forEach(n => total += n.volume);
+                //   return total;
+                // })()
+
+                // Reduce - processa um array e retorna apenas um resultado
+                // Executa a função para cada item da lista
+                model.negociacoes.reduce((total, n) => total + n.volume, 0.0)
+              }
+            </td>
+          </tr>
         </tfoot>
       </table>
     `;
