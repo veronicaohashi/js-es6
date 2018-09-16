@@ -1,8 +1,8 @@
 class MensagemView extends View{
   
-  constructor(el){
-    super(el);
-  }
+  // constructor(el){
+  //   super(el);
+  // }
   
   // Método template que irá retornar um template string
   template(model){
