@@ -26,7 +26,7 @@ class NegociacaoController {
 
     this._listaNegociacoes.adiciona(this._criaNegociacao());
     
-    this._mensagem.texto = 'Negociacao adicionada com sucesso';
+    this._mensagem.texto = 'Negociação adicionada com sucesso';
     this._mensagemView.update(this._mensagem);  
     // Atualiza a view para exibir a tabela mesmo com dados novos
     this._negociacoesView.update(this._listaNegociacoes);

@@ -5,7 +5,7 @@ class MensagemView extends View{
   }
   
   // Método template que irá retornar um template string
-  _template(model){
+  template(model){
     return model.texto ? `<p class="alert alert-info">${model.texto}</p>` : `<p></p>`;
   }
 

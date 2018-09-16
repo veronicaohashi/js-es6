@@ -5,7 +5,7 @@ class NegociacoesView extends View{
   }
   
   // Método template que irá retornar um template string
-  _template(model){
+  template(model){
     return `    
       <table class="table table-hover table-bordered">
         <thead>
