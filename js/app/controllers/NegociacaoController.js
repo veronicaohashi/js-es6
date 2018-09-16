@@ -34,6 +34,13 @@ class NegociacaoController {
 
   }
 
+  apaga(){
+    this._listaNegociacoes.esvazia();
+    this._negociacoesView.update(this._listaNegociacoes);
+    this._mensagem.texto = 'Negociações apagadas com sucesso';
+    this._mensagemView.update(this._mensagem);
+  }
+
   _criaNegociacao(){
     return new Negociacao(
       DateHelper.textToDate(this._inputData.value),
@@ -41,7 +48,6 @@ class NegociacaoController {
       this._inputValor.value
     );
   }
-
 
   // Método para limpar o formulário
   // Este método só pode ser chamado pela própria classe
