@@ -1,10 +1,9 @@
-class NegociacoesView {
-
-  // el - elemento do DOM que vai receber o template
+class NegociacoesView extends View{
+ 
   constructor(el){
-    this._el = el;
+    super(el);
   }
-
+  
   // Método template que irá retornar um template string
   _template(model){
     return `    
@@ -53,10 +52,5 @@ class NegociacoesView {
     `;
   }
 
-  // Método que irá exibir o template
-  update(model){
-    // innerHTML - converte a string em elementos do DOM 
-    this._el.innerHTML = this._template(model);
-  }
 
 }

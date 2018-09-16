@@ -14,6 +14,10 @@ class NegociacaoController {
     this._negociacoesView  = new NegociacoesView($('#negociacoesView'));
     // Atualiza a view para exibir a tabela mesmo com dados vazios
     this._negociacoesView.update(this._listaNegociacoes);
+    // Instancio a classe mensagem
+    this._mensagem = new Mensagem();
+    this._mensagemView = new MensagemView($('#mensagemView'));
+    this._mensagemView.update(this._mensagem)
   }
 
   adiciona(event){
@@ -21,11 +25,13 @@ class NegociacaoController {
     event.preventDefault();
 
     this._listaNegociacoes.adiciona(this._criaNegociacao());
+    
+    this._mensagem = 'Negociação adicionada com sucesso';
+    this._mensagemView.update(this._mensagem);
     // Atualiza a view para exibir a tabela mesmo com dados novos
     this._negociacoesView.update(this._listaNegociacoes);
     this._limpaFormulario();
 
-    console.log(this._listaNegociacoes.negociacoes);
   }
 
   _criaNegociacao(){

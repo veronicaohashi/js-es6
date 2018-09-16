@@ -1,15 +1,15 @@
 class Mensagem{
   
-  // Atribui um valir padrão 
+  // Atribui um valor padrão 
   constructor(texto = ''){
-    this._text = texto;
+    this._mensagem = texto;
   }
 
-  get text(){
-    return this._text;
+  get mensagem(){
+    return this._mensagem;
   }
 
-  set text(texto){
-    this._text = texto;
+  set mensagem(texto){
+    this._mensagem = texto;
   }
 }
