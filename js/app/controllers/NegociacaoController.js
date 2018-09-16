@@ -9,11 +9,27 @@ class NegociacaoController {
     this._inputData        = $('#data');
     this._inputQuantidade  = $('#quantidade');
     this._inputValor       = $('#valor');
-    this._listaNegociacoes = new ListaNegociacoes();
+
+    // Quando a função é executada no contexto de listaNegociacoes, a função tem um contexto dinâmico
+    // O this dentro de uma função depende do contexto no qual é executada.
+    // Essa função quando é chamada é executada no contexto de listaNegociacoes, então esse this é a lista
+    // negociações e não o controller
+    // this._listaNegociacoes = new ListaNegociacoes(function(model){      
+    //   // Atualiza a view para exibir a tabela mesmo com dados vazios
+    //   // Model - instâcia de lista negociações que vai ser passada para a função quando for chamada
+    //   this._negociacoesView.update(model);
+    // });
+
+    this._listaNegociacoes = new ListaNegociacoes(this,function(model){      
+      // Atualiza a view para exibir a tabela mesmo com dados vazios
+      // Model - instâcia de lista negociações que vai ser passada para a função quando for chamada
+      this._negociacoesView.update(model);
+    });
+
     // Passa o elemento do DOM para o constructor
     this._negociacoesView  = new NegociacoesView($('#negociacoesView'));
-    // Atualiza a view para exibir a tabela mesmo com dados vazios
     this._negociacoesView.update(this._listaNegociacoes);
+
     // Instancio a classe mensagem
     this._mensagem = new Mensagem();
     this._mensagemView = new MensagemView($('#mensagemView'));
@@ -28,15 +44,14 @@ class NegociacaoController {
     
     this._mensagem.texto = 'Negociação adicionada com sucesso';
     this._mensagemView.update(this._mensagem);  
-    // Atualiza a view para exibir a tabela mesmo com dados novos
-    this._negociacoesView.update(this._listaNegociacoes);
+
     this._limpaFormulario();
 
   }
 
   apaga(){
     this._listaNegociacoes.esvazia();
-    this._negociacoesView.update(this._listaNegociacoes);
+
     this._mensagem.texto = 'Negociações apagadas com sucesso';
     this._mensagemView.update(this._mensagem);
   }
