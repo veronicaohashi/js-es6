@@ -20,11 +20,11 @@ class NegociacaoController {
     //   this._negociacoesView.update(model);
     // });
 
-    this._listaNegociacoes = new ListaNegociacoes(this,function(model){      
+    this._listaNegociacoes = new ListaNegociacoes(model =>      
       // Atualiza a view para exibir a tabela mesmo com dados vazios
       // Model - instâcia de lista negociações que vai ser passada para a função quando for chamada
-      this._negociacoesView.update(model);
-    });
+      this._negociacoesView.update(model)
+    );
 
     // Passa o elemento do DOM para o constructor
     this._negociacoesView  = new NegociacoesView($('#negociacoesView'));
