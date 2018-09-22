@@ -61,11 +61,19 @@
         get: function(target, prop, receiver){
           console.log(`a propriedade "${prop}" foi interceptada`);
           // Informo o valor retornado após ter interceptado a propriedade de leitura
-          return Reflect.get(target, prop, receiver)
+          return Reflect.get(target, prop, receiver);
+        },
+
+        set: function(target, prop, value, receiver){
+          // target[prop] - passo o nome da propriedade que quero acessar desse objeto
+          console.log(`valor anterior ${target[prop]} e valor atual ${value}`);
+          return Reflect.set(target, prop, value, receiver);
         }
       });
       console.log(negociacao.quantidade);
       console.log(negociacao.valor);
+      negociacao._quantidade = 20;
+      negociacao._valor = 200;
     </script>
   </body>
 </html>
