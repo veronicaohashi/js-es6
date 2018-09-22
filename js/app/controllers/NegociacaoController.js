@@ -20,6 +20,8 @@ class NegociacaoController {
     //   this._negociacoesView.update(model);
     // });
 
+    // O escopo do this de uma arrow function é lexico, e não dinâmico. Sendo assim, ele não muda de 
+    // acordo com o contexto
     this._listaNegociacoes = new ListaNegociacoes(model =>      
       // Atualiza a view para exibir a tabela mesmo com dados vazios
       // Model - instâcia de lista negociações que vai ser passada para a função quando for chamada
