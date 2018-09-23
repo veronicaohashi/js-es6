@@ -1,5 +1,6 @@
 class Bind {
-  constructor(model, view, props){
+  // ... - Rest operator - a partir do terceiro parâmetro passado será considerado um array
+  constructor(model, view, ...props){
     let proxy = ProxyFactory.create(model, props, model => {view.update(model)});
     
     view.update(model);

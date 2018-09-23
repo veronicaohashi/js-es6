@@ -20,13 +20,10 @@ class NegociacaoController {
     //   this._negociacoesView.update(model);
     // });
 
-    // Passa o elemento do DOM para o constructor
-    this._negociacoesView  = new NegociacoesView($('#negociacoesView'));
-
     this._listaNegociacoes = new Bind (
       new ListaNegociacoes(),
-      this._negociacoesView,
-      ['adiciona', 'esvazia']);
+      new NegociacoesView($('#negociacoesView')),
+      'adiciona', 'esvazia');
 
     // O escopo do this de uma arrow function é lexico, e não dinâmico. Sendo assim, ele não muda de 
     // acordo com o contexto
@@ -36,14 +33,11 @@ class NegociacaoController {
     //   this._negociacoesView.update(model)
     // );
 
-    this._mensagemView = new MensagemView($('#mensagemView'));
-    
     // Instancio a classe mensagem
     this._mensagem = new Bind(
       new Mensagem(),
-      this._mensagemView, 
-      ['texto']);
-      
+      new MensagemView($('#mensagemView')), 
+      'texto');      
   }
 
   adiciona(event){
