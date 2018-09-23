@@ -52,28 +52,5 @@
       // Instancio o controller
       let negociacaoController = new NegociacaoController();
     </script>  
-    <script>
-      let negociacao = new Proxy(new Negociacao(new Date(), 1, 100), {
-        // Método (armadilha) chamado toda vez que for realizado uma operação de leitura do objeto
-        // target - referencia ao objeto original que está sendo encapsulado pelo proxy
-        // prop - propriedade que está sendo acessada
-        // receiver - referencia para o proxy
-        get: function(target, prop, receiver){
-          console.log(`a propriedade "${prop}" foi interceptada`);
-          // Informo o valor retornado após ter interceptado a propriedade de leitura
-          return Reflect.get(target, prop, receiver);
-        },
-
-        set: function(target, prop, value, receiver){
-          // target[prop] - passo o nome da propriedade que quero acessar desse objeto
-          console.log(`valor anterior ${target[prop]} e valor atual ${value}`);
-          return Reflect.set(target, prop, value, receiver);
-        }
-      });
-      console.log(negociacao.quantidade);
-      console.log(negociacao.valor);
-      negociacao._quantidade = 20;
-      negociacao._valor = 200;
-    </script>
   </body>
 </html>
